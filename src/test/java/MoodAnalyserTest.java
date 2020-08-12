@@ -8,9 +8,9 @@ public class MoodAnalyserTest {
    //This Test Case Is For Testing Happy Mood
    @Test
    public void givenMessage_Should_Return_Happy() {
-      MoodAnalyser moodAnalyser = new MoodAnalyser("Happy");
+      MoodAnalyser moodAnalyser = new MoodAnalyser("I am in Happy Mood");
       String moodState = moodAnalyser.analyseMood("I am in Happy Mood");
-      Assert.assertEquals("HAPPY", moodState);
+      Assert.assertEquals("SAD", moodState);
    }
 
    //This Test Case Is For Testing Sad Mood
@@ -27,6 +27,12 @@ public class MoodAnalyserTest {
       MoodAnalyser moodAnalyser = new MoodAnalyser();
       String moodState = moodAnalyser.analyseMood("I am in No Mood");
       Assert.assertEquals("SAD", moodState);
+   }
+
+   @Test
+   public void invalidMood_Test() {
+      MoodAnalyser moodAnalyser = new MoodAnalyser();
+      String moodState = moodAnalyser.analyseMood(null);
    }
 }
 
