@@ -29,10 +29,12 @@ public class MoodAnalyserTest {
       Assert.assertEquals("SAD", moodState);
    }
 
+   //This Case is for testing Null Pointer
    @Test
    public void invalidMood_Test() {
       MoodAnalyser moodAnalyser = new MoodAnalyser();
       String moodState = moodAnalyser.analyseMood(null);
+      Assert.assertEquals("HAPPY", moodState);
    }
 }
 

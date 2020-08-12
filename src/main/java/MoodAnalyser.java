@@ -14,6 +14,7 @@ public class MoodAnalyser {
    //This Method Will Check whether the Mood is Happy or Sad
    public String analyseMood(String moodMessage) {
 
+      //try/catch is for handling NullPointerException
       try {
          if (moodMessage.contains("Sad")) {
             return "SAD";
@@ -25,8 +26,7 @@ public class MoodAnalyser {
             return "HAPPY";
          }
       } catch (NullPointerException e) {
-         System.out.println("Enter Valid Input");
-         return null;
+         return "HAPPY";
       }
    }
 }
