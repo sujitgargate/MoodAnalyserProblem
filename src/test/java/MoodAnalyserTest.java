@@ -2,6 +2,7 @@ import org.graalvm.compiler.lir.profiling.MoveProfilingPhase_OptionDescriptors;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class MoodAnalyserTest {
 
@@ -31,10 +32,13 @@ public class MoodAnalyserTest {
 
    //This Case is for testing Null Pointer
    @Test
-   public void invalidMood_Test() {
-      MoodAnalyser moodAnalyser = new MoodAnalyser();
-      String moodState = moodAnalyser.analyseMood(null);
-      Assert.assertEquals("HAPPY", moodState);
+   public void invalidMood_Should_Throw_Exception() {
+      MoodAnalyser moodAnalyser = new MoodAnalyser(null);
+      try {
+         moodAnalyser.analyseMood(null);
+      } catch (MoodAnalysisException e) {
+         Assert.assertEquals(MoodAnalysisException.ExceptionType.ENTERED_NULL, e.type);
+      }
    }
 }
 
